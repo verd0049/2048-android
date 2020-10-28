@@ -24,6 +24,8 @@ import de.cketti.changelog.dialog.DialogChangeLog;
 
 public class MainActivity extends Activity {
 
+    //documentation
+
     private static final String MAIN_ACTIVITY_TAG = "2048_MainActivity";
 
     private WebView mWebView;
