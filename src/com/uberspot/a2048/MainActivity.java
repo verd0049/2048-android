@@ -25,6 +25,7 @@ import de.cketti.changelog.dialog.DialogChangeLog;
 public class MainActivity extends Activity {
 
     //documentation
+    //more documentation
 
     private static final String MAIN_ACTIVITY_TAG = "2048_MainActivity";
 
