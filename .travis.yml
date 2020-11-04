@@ -1,23 +1,32 @@
 language: android
-
-jdk:
-  - oraclejdk8
+dist: trusty
 
 android:
   components:
-    - tools
-    - platform-tools
-    - tools
-    - build-tools-28.0.3
-    - android-28
-
-    - extra-android-support
-    - extra-android-m2repository
-
+  - tools
+  - platform-tools
+  - tools
+  - build-tools-28.0.3
+  - android-28
+  - extra-android-support
+  - extra-android-m2repository
   licenses:
-    - 'android-sdk-license-.+'
-    - 'android-sdk-preview-license-.+'
-    - '-.+'
-
+  - android-sdk-license-.+
+  - android-sdk-preview-license-.+
+  - "-.+"
 script:
-  - ./gradlew build
+- "./gradlew test"
+- "./gradlew lint"
+- "./gradlew build"
+deploy:
+  provider: releases
+  api_key:
+    secure: EFISJnBaZYxM+6IEdnImGEi1TAHosFeHo+d/3AL/HWkKTfxGzJPQ6Exo+xIDhiq2Z1fff6GecXUNgdlQbsBUvQAJmftdWnJ7b7qXmUz4VyxQ3+gNDpAbRnsKoVy+r9bJakm/m6Tm0omqBmowKRm+hkuAA4cgImwXJWSSOtWxIwjCgyzGeMqnvTzSQQaFLH+7Dm3P35m/doVmG/b8MLjZ04ByARGiRG44OVLyTuwU27ITVGOGONcjlQAq5NzmWEjEVstaav7u6R6j9SgyQ6gUiffWBHzpOOVVrRcsTJZqyrEzyVI/1tozX3O1XLp81nxeD4O/1gxMslTPLtNpTOOaHiNqDPnRIcev0iXsEePYCat5m5WU1rkmrlVLgi49cJTrN9kMrhZ/iTecUgwOVmoq2SQYJ+rZycEKE3PblhGeKEw3RyfzgsYbwt6/JuQ68UN5N4h4gsM9VghFHerkCuBvQ3ppbwuB2XB8aLnIhn36g/iFBqJj8yysKKOFbi5cXCH4MSt6/EKDpX6mWWGj5OS9VW0e1cLv6hDnjM8LJIYUoj8mdIcn6WZoA3/TQk2c7g+miI04kKkUl57Li3mbbYtOaSrfUHsM6pfikcDdYKoEAJq1nVHTQ9Bf776uj7okfrUqRpAZmKtiKWA/cFcpsMqG7KmJvR+eOrrVCFTx5QriysQ=
+  file:
+   "/home/travis/build/verd0049/2048-android/build/outputs/apk/release/*"
+  file_glob: true
+  overwrite: true
+  on:
+    repo: verd0049/2048-android
+    tags: true
+  skip_cleanup: 'true'
