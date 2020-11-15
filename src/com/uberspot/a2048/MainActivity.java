@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
     //test
     //documentation
     //documentation
+    //documentation
 
     private static final String MAIN_ACTIVITY_TAG = "2048_MainActivity";
 
